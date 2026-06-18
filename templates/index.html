@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de carga de calefacción</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="contenedor">
+        <section class="tarjeta">
+            <header>
+                <p class="etiqueta-superior">Energy Efficiency</p>
+                <h1>Predicción de carga de calefacción</h1>
+                <p class="descripcion">
+                    Este modelo estima la carga de calefacción de un edificio
+                    usando sus características físicas originales.
+                </p>
+            </header>
+
+            {% if error %}
+                <div class="mensaje error" role="alert">{{ error }}</div>
+            {% endif %}
+
+            {% if resultado %}
+                <div class="mensaje resultado" role="status">
+                    Carga de calefacción estimada:
+                    <strong>{{ resultado }}</strong>
+                </div>
+            {% endif %}
+
+            <form method="post">
+                <div class="cuadricula">
+                    {% for campo in campos %}
+                        <div class="grupo-campo">
+                            <label for="{{ campo.nombre }}">
+                                {{ campo.etiqueta }}
+                            </label>
+                            <input
+                                type="number"
+                                id="{{ campo.nombre }}"
+                                name="{{ campo.nombre }}"
+                                step="{{ campo.paso }}"
+                                value="{{ valores[campo.nombre] }}"
+                                required
+                            >
+                            <small>
+                                {{ campo.ayuda }}
+                                <span class="nombre-columna">{{ campo.nombre }}</span>
+                            </small>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <button type="submit">Calcular predicción</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
