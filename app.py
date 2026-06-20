@@ -20,6 +20,17 @@ COLUMNAS_ENTRADA = [
     "distribucion_ventanas",
 ]
 
+VALORES_PREDETERMINADOS = {
+    "compacidad_relativa": "0.98",
+    "area_superficial": "514.5",
+    "area_muros": "294.0",
+    "area_techo": "110.25",
+    "altura_total": "7.0",
+    "orientacion": "2",
+    "area_ventanas": "0.10",
+    "distribucion_ventanas": "1",
+}
+
 CAMPOS_FORMULARIO = [
     {
         "nombre": "compacidad_relativa",
@@ -84,7 +95,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    valores = {columna: "" for columna in COLUMNAS_ENTRADA}
+    valores = VALORES_PREDETERMINADOS.copy()
     resultado = None
     error = None
 

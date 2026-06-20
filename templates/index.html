@@ -14,18 +14,41 @@
                 <h1>Predicción de carga de calefacción</h1>
                 <p class="descripcion">
                     Este modelo estima la carga de calefacción de un edificio
-                    usando sus características físicas originales.
+                    usando sus características físicas originales. Los campos
+                    incluyen un ejemplo inicial que puedes modificar.
                 </p>
             </header>
+
+            <aside class="explicacion-unidad" aria-label="Explicación de la unidad">
+                <strong>¿Qué significa la carga de calefacción?</strong>
+                <p>
+                    Se presenta en
+                    <strong>kilovatios-hora por metro cuadrado (kWh/m²)</strong>:
+                    representa la energía de calefacción requerida por unidad
+                    de superficie. No es un porcentaje ni una potencia
+                    instantánea. Entre edificios comparables, un valor menor
+                    indica menor demanda energética de calefacción.
+                </p>
+            </aside>
 
             {% if error %}
                 <div class="mensaje error" role="alert">{{ error }}</div>
             {% endif %}
 
             {% if resultado %}
-                <div class="mensaje resultado" role="status">
-                    Carga de calefacción estimada:
-                    <strong>{{ resultado }}</strong>
+                <div class="resultado" role="status" aria-live="polite">
+                    <span class="resultado-etiqueta">
+                        Carga de calefacción estimada
+                    </span>
+                    <div class="resultado-valor">
+                        <strong>{{ resultado }}</strong>
+                        <span>kWh/m²</span>
+                    </div>
+                    <p>
+                        Es la carga energética estimada necesaria para
+                        calefaccionar el edificio por cada metro cuadrado,
+                        según las condiciones representadas por el modelo.
+                    </p>
                 </div>
             {% endif %}
 
@@ -42,6 +65,7 @@
                                 name="{{ campo.nombre }}"
                                 step="{{ campo.paso }}"
                                 value="{{ valores[campo.nombre] }}"
+                                inputmode="decimal"
                                 required
                             >
                             <small>

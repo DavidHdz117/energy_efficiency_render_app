@@ -15,6 +15,12 @@ El pipeline ya incluye el preprocesamiento, PCA y el modelo ganador. La
 aplicación no entrena ningún modelo: únicamente carga el archivo guardado y lo
 usa para generar predicciones.
 
+La interfaz presenta la predicción como una carga energética estimada en
+`kWh/m²`: energía de calefacción requerida por unidad de superficie. No es un
+porcentaje, una potencia instantánea ni equivale directamente al costo de un
+recibo. El formulario se carga con valores de ejemplo válidos que pueden
+modificarse antes de calcular.
+
 ## Ejecutar localmente
 
 Abre una terminal dentro de esta carpeta y ejecuta:

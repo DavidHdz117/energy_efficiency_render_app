@@ -45,9 +45,27 @@ h1 {
 
 .descripcion {
     max-width: 680px;
-    margin: 14px 0 28px;
+    margin: 14px 0 20px;
     color: #52606d;
     line-height: 1.6;
+}
+
+.explicacion-unidad {
+    margin-bottom: 24px;
+    padding: 16px 18px;
+    border-left: 5px solid #0f766e;
+    border-radius: 0 8px 8px 0;
+    background: #f0fdfa;
+}
+
+.explicacion-unidad strong {
+    color: #115e59;
+}
+
+.explicacion-unidad p {
+    margin: 6px 0 0;
+    color: #40515d;
+    line-height: 1.5;
 }
 
 .cuadricula {
@@ -112,7 +130,8 @@ button:hover {
     background: #0b5f59;
 }
 
-.mensaje {
+.mensaje,
+.resultado {
     margin: 0 0 24px;
     padding: 14px 16px;
     border-radius: 8px;
@@ -127,8 +146,38 @@ button:hover {
 
 .resultado {
     color: #14532d;
-    background: #dcfce7;
+    background: #f0fdf4;
     border: 1px solid #bbf7d0;
+}
+
+.resultado-etiqueta {
+    display: block;
+    color: #166534;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.resultado-valor {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.resultado-valor strong {
+    font-size: 2rem;
+}
+
+.resultado-valor span {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.resultado p {
+    margin: 6px 0 0;
+    color: #3f5f4c;
 }
 
 @media (max-width: 680px) {
